@@ -24,10 +24,7 @@
             --gray: #808080;
         }
 
-        * {
-            font-family: 'Atkinson Hyperlegible Next', system-ui, sans-serif;
-            box-sizing: border-box;
-        }
+        * { font-family: 'Atkinson Hyperlegible Next', system-ui, sans-serif; box-sizing: border-box; }
 
         body {
             margin: 0;
@@ -40,11 +37,8 @@
         .media-page {
             position: absolute;
             top: 0; left: 0;
-            width: 100vw;
-            height: 100vh;
-            color: var(--white);
+            width: 100vw; height: 100vh;
             overflow-y: auto;
-            overflow-x: hidden;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -54,13 +48,6 @@
             width: 100%;
             max-width: 1400px;
             padding: 60px 40px 120px;
-            animation: fadeIn 0.5s ease-out;
-            box-sizing: border-box;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         .header {
@@ -88,13 +75,11 @@
             border-radius: 10px;
             cursor: pointer;
             font-weight: 600;
-            transition: all .2s;
         }
 
         .tabs button.active {
             background: var(--white-08);
             color: var(--white);
-            box-shadow: 0 4px 15px #0003;
         }
 
         .search-wrapper {
@@ -109,9 +94,6 @@
             top: 50%;
             transform: translateY(-50%);
             opacity: .5;
-            width: 20px;
-            height: 20px;
-            pointer-events: none;
         }
 
         .search-input {
@@ -121,9 +103,6 @@
             border: 1px solid var(--sidebar-border);
             border-radius: 12px;
             color: var(--white);
-            font-size: 1rem;
-            transition: all .3s ease;
-            backdrop-filter: blur(10px);
         }
 
         .results-grid {
@@ -134,86 +113,41 @@
 
         .media-card {
             background: var(--bg-dark-40);
-            backdrop-filter: blur(15px);
             border: 1px solid var(--sidebar-border);
             border-radius: 20px;
             overflow: hidden;
             cursor: pointer;
-            transition: all .4s cubic-bezier(.165,.84,.44,1);
-            display: flex;
-            flex-direction: column;
+            transition: all .4s;
         }
 
         .media-card:hover {
             transform: translateY(-10px) scale(1.02);
-            border-color: var(--border-focused);
-            background: var(--bg-darker-60);
             box-shadow: 0 20px 40px var(--black-40);
         }
 
-        .poster-container {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 2/3;
-            overflow: hidden;
-        }
-
-        .poster {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform .6s ease;
-        }
-
-        .media-card:hover .poster {
-            transform: scale(1.1);
-        }
+        .poster-container { position: relative; aspect-ratio: 2/3; overflow: hidden; }
+        .poster { width: 100%; height: 100%; object-fit: cover; transition: .6s; }
+        .media-card:hover .poster { transform: scale(1.1); }
 
         .card-overlay {
             position: absolute;
             inset: 0;
             background: var(--black-40);
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
             opacity: 0;
-            transition: opacity .3s ease;
+            transition: .3s;
         }
 
-        .media-card:hover .card-overlay {
-            opacity: 1;
-        }
+        .media-card:hover .card-overlay { opacity: 1; }
 
-        .play-icon {
-            width: 50px;
-            height: 50px;
-            color: var(--white);
-        }
-
-        .card-details {
-            padding: 15px;
-        }
-
-        .media-title {
-            margin: 0;
-            font-size: 1rem;
-            font-weight: 700;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .media-date {
-            margin: 4px 0 0;
-            font-size: .85rem;
-            color: var(--gray);
-        }
+        .card-details { padding: 15px; }
+        .media-title { font-size: 1rem; font-weight: 700; margin: 0; }
+        .media-date { font-size: .85rem; color: var(--gray); margin: 4px 0 0; }
 
         /* Detail View */
-        .details-view {
-            animation: fadeIn 0.4s ease;
-        }
-
+        .details-view { display: none; animation: fadeIn 0.4s; }
         .back-btn {
             background: var(--white-03);
             border: 1px solid var(--border-color);
@@ -222,134 +156,71 @@
             border-radius: 10px;
             cursor: pointer;
             margin-bottom: 30px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: all .2s;
         }
 
-        .back-btn:hover {
-            background: var(--white-08);
-            border-color: var(--border-focused);
-        }
-
-        .meta-section {
-            display: flex;
-            gap: 40px;
-            margin-bottom: 50px;
-        }
-
-        .detail-poster {
-            width: 300px;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px #0006;
-        }
-
-        .info-content {
-            flex: 1;
-        }
-
-        .detail-title {
-            font-size: 2.5rem;
-            margin: 0 0 20px;
-        }
-
-        .overview {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: var(--white-70);
-            margin-bottom: 30px;
-        }
+        .meta-section { display: flex; gap: 40px; margin-bottom: 50px; }
+        .detail-poster { width: 300px; border-radius: 20px; }
+        .detail-title { font-size: 2.5rem; margin: 0 0 20px; }
+        .overview { font-size: 1.1rem; line-height: 1.6; color: var(--white-70); }
 
         .primary-play-btn {
-            background: var(--white);
-            color: var(--black);
+            background: white;
+            color: black;
             border: none;
             padding: 15px 40px;
             border-radius: 12px;
             font-size: 1.2rem;
             font-weight: 700;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: transform .2s;
-        }
-
-        .primary-play-btn:hover {
-            transform: scale(1.05);
         }
 
         /* Player View */
         .player-view {
             position: fixed;
             inset: 0;
-            z-index: 101;
             background: #000;
+            z-index: 200;
             display: none;
+            flex-direction: column;
         }
 
         .video-player {
+            flex: 1;
             width: 100%;
             height: 100%;
-            border: none;
         }
 
         .controls-container {
             position: absolute;
-            top: 25px;
-            left: 25px;
+            top: 20px;
+            left: 20px;
             display: flex;
-            gap: 15px;
-            z-index: 102;
+            gap: 12px;
+            z-index: 210;
         }
 
         .control-button {
-            width: 50px;
-            height: 50px;
-            border-radius: 15px;
-            background: var(--bg-dark-40);
-            backdrop-filter: blur(15px);
-            border: 1px solid var(--sidebar-border);
-            color: var(--white);
+            width: 48px;
+            height: 48px;
+            background: rgba(0,0,0,0.6);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+            color: white;
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
             cursor: pointer;
-            transition: all .3s ease;
-        }
-
-        .control-button:hover {
-            background: var(--nav-item-hover);
-            border-color: var(--border-focused);
-            transform: scale(1.1);
         }
 
         .loading-overlay {
             position: absolute;
             inset: 0;
+            background: rgba(0,0,0,0.8);
             display: flex;
-            justify-content: center;
             align-items: center;
-            z-index: 101;
-            background: #000;
-        }
-
-        .loader {
-            text-align: center;
-            padding: 40px 0;
-            color: #666;
-        }
-
-        @media (max-width: 768px) {
-            .meta-section {
-                flex-direction: column;
-                align-items: center;
-            }
-            .detail-poster {
-                width: 100%;
-                max-width: 300px;
-            }
+            justify-content: center;
+            color: #aaa;
+            z-index: 205;
         }
     </style>
 </head>
@@ -358,7 +229,7 @@
 <div class="media-page">
     <div class="media-container">
 
-        <!-- Grid View -->
+        <!-- Grid -->
         <div id="grid-view">
             <div class="header">
                 <div class="tabs">
@@ -366,10 +237,8 @@
                     <button>TV Shows</button>
                 </div>
                 <div class="search-wrapper">
-                    <svg class="search-icon" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="m19.6 21l-6.3-6.3q-.75.6-1.725.95T9.5 16q-2.725 0-4.612-1.888T3 9.5t1.888-4.612T9.5 3t4.613 1.888T16 9.5q0 1.1-.35 2.075T14.7 13.3l6.3 6.3zM9.5 14q1.875 0 3.188-1.312T14 9.5t-1.312-3.187T9.5 5T6.313 6.313T5 9.5t1.313 3.188T9.5 14"/>
-                    </svg>
-                    <input id="search-input" type="text" placeholder="Search Movies..." class="search-input">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="currentColor"><path d="m19.6 21l-6.3-6.3q-.75.6-1.725.95T9.5 16q-2.725 0-4.612-1.888T3 9.5t1.888-4.612T9.5 3t4.613 1.888T16 9.5q0 1.1-.35 2.075T14.7 13.3l6.3 6.3zM9.5 14q1.875 0 3.188-1.312T14 9.5t-1.312-3.187T9.5 5T6.313 6.313T5 9.5t1.313 3.188T9.5 14"/></svg>
+                    <input id="search-input" placeholder="Search Movies..." class="search-input">
                 </div>
             </div>
 
@@ -379,18 +248,13 @@
 
         <!-- Detail View -->
         <div id="detail-view" class="details-view" style="display:none;">
-            <button onclick="showGrid()" class="back-btn">
-                ← Back to Movies
-            </button>
-
+            <button onclick="showGrid()" class="back-btn">← Back to Movies</button>
             <div class="meta-section">
-                <img id="detail-poster" src="" alt="poster" class="detail-poster">
+                <img id="detail-poster" src="" class="detail-poster" alt="">
                 <div class="info-content">
                     <h1 id="detail-title" class="detail-title"></h1>
                     <p id="detail-overview" class="overview"></p>
-                    <button onclick="playCurrentMovie()" class="primary-play-btn">
-                        ▶ Play Now
-                    </button>
+                    <button onclick="playMovie()" class="primary-play-btn">▶ Play Now</button>
                 </div>
             </div>
         </div>
@@ -398,43 +262,26 @@
         <!-- Player View -->
         <div id="player-view" class="player-view">
             <div class="controls-container">
-                <button onclick="closePlayer()" class="control-button" title="Back to Details">
-                    <svg viewBox="0 0 24 24" width="1.2em" height="1.2em" fill="currentColor">
-                        <path d="m7.825 13l5.6 5.6L12 20l-8-8l8-8l1.425 1.4l-5.6 5.6H20v2z"/>
-                    </svg>
-                </button>
-                <button onclick="reloadStream()" class="control-button" title="Reload Stream">
-                    <svg viewBox="0 0 24 24" width="1.2em" height="1.2em" fill="currentColor">
-                        <path d="M12 20q-3.35 0-5.675-2.325T4 12t2.325-5.675T12 4q1.725 0 3.3.712T18 6.75V4h2v7h-7V9h4.2q-.8-1.4-2.187-2.2T12 6Q9.5 6 7.75 7.75T6 12t1.75 4.25T12 18q1.925 0 3.475-1.1T17.65 14h2.1q-.7 2.65-2.85 4.325T12 20"/>
-                    </svg>
-                </button>
-                <button onclick="toggleFullscreen()" class="control-button" title="Toggle Fullscreen">
-                    <svg viewBox="0 0 24 24" width="1.2em" height="1.2em" fill="currentColor">
-                        <path d="M3 21v-5h2v3h3v2zm13 0v-2h3v-3h2v5zM3 8V3h5v2H5v3zm16 0V5h-3V3h5v5z"/>
-                    </svg>
-                </button>
+                <button onclick="closePlayer()" class="control-button" title="Back">←</button>
+                <button onclick="reloadPlayer()" class="control-button" title="Reload">↻</button>
+                <button onclick="toggleFullscreen()" class="control-button" title="Fullscreen">⛶</button>
             </div>
-
-            <div class="loading-overlay" id="loading-overlay">
-                <div class="loader">Loading stream...</div>
-            </div>
-
-            <video id="video-player" controls autoplay class="video-player"></video>
+            <div id="loading-overlay" class="loading-overlay">Loading stream...</div>
+            <video id="video-player" class="video-player" controls autoplay></video>
         </div>
 
     </div>
 </div>
 
 <script>
-// Load movies from movies.json
+// Load from movies.json
 async function loadMovies() {
     try {
         const res = await fetch('movies.json');
-        if (!res.ok) throw new Error('Failed to load movies.json');
         return await res.json();
-    } catch (e) {
-        console.error(e);
-        return []; // fallback empty
+    } catch(e) {
+        console.error("Could not load movies.json", e);
+        return [];
     }
 }
 
@@ -445,16 +292,13 @@ const batchSize = 12;
 
 async function init() {
     allMovies = await loadMovies();
-    if (allMovies.length === 0) {
-        document.getElementById('results-grid').innerHTML = '<p style="color:#666; grid-column:1/-1; text-align:center;">No movies found in movies.json</p>';
-        return;
-    }
     renderMovies(allMovies.slice(0, batchSize));
     loadedCount = batchSize;
 }
 
 function renderMovies(movies) {
     const grid = document.getElementById('results-grid');
+    grid.innerHTML = '';
     movies.forEach(movie => {
         const card = document.createElement('div');
         card.className = 'media-card';
@@ -462,9 +306,7 @@ function renderMovies(movies) {
             <div class="poster-container">
                 <img src="${movie.poster}" alt="${movie.title}" class="poster">
                 <div class="card-overlay">
-                    <svg viewBox="0 0 24 24" width="50" height="50" fill="currentColor" class="play-icon">
-                        <path d="M8 19V5l11 7z"/>
-                    </svg>
+                    <svg viewBox="0 0 24 24" width="50" height="50" fill="currentColor"><path d="M8 19V5l11 7z"/></svg>
                 </div>
             </div>
             <div class="card-details">
@@ -484,7 +326,7 @@ function showDetail(movie) {
 
     document.getElementById('detail-poster').src = movie.poster;
     document.getElementById('detail-title').textContent = movie.title;
-    document.getElementById('detail-overview').textContent = movie.overview || "No overview available.";
+    document.getElementById('detail-overview').textContent = movie.overview || "No description available.";
 }
 
 function showGrid() {
@@ -492,24 +334,21 @@ function showGrid() {
     document.getElementById('grid-view').style.display = 'block';
 }
 
-function playCurrentMovie() {
+function playMovie() {
     if (!currentMovie || !currentMovie.streamUrl) {
-        alert("No stream URL available.");
+        alert("No stream URL available for this movie.");
         return;
     }
 
     const proxyUrl = `/api/streaming/proxy?url=${encodeURIComponent(currentMovie.streamUrl)}&referer=${encodeURIComponent('https://videostr.net/')}`;
 
-    // Show player view
-    document.getElementById('player-view').style.display = 'block';
+    // Show player
+    const playerView = document.getElementById('player-view');
     const video = document.getElementById('video-player');
-    video.src = proxyUrl;
-    video.play().catch(() => {});
 
-    document.getElementById('loading-overlay').style.display = 'flex';
-    video.onloadeddata = () => {
-        document.getElementById('loading-overlay').style.display = 'none';
-    };
+    playerView.style.display = 'flex';
+    video.src = proxyUrl;
+    video.play().catch(err => console.error("Playback failed:", err));
 }
 
 function closePlayer() {
@@ -517,10 +356,9 @@ function closePlayer() {
     video.pause();
     video.src = '';
     document.getElementById('player-view').style.display = 'none';
-    document.getElementById('loading-overlay').style.display = 'none';
 }
 
-function reloadStream() {
+function reloadPlayer() {
     const video = document.getElementById('video-player');
     video.load();
     video.play();
@@ -528,34 +366,23 @@ function reloadStream() {
 
 function toggleFullscreen() {
     const video = document.getElementById('video-player');
-    if (!document.fullscreenElement) {
-        video.requestFullscreen();
-    } else {
-        document.exitFullscreen();
-    }
+    if (!document.fullscreenElement) video.requestFullscreen();
+    else document.exitFullscreen();
 }
 
-// Infinite Scroll
+// Infinite scroll
 window.addEventListener('scroll', () => {
     if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 400) {
-        const loader = document.getElementById('loader');
-        loader.style.display = 'block';
-
-        setTimeout(() => {
-            const more = allMovies.slice(loadedCount, loadedCount + batchSize);
-            if (more.length > 0) {
-                renderMovies(more);
-                loadedCount += more.length;
-            }
-            loader.style.display = 'none';
-        }, 600);
+        const more = allMovies.slice(loadedCount, loadedCount + batchSize);
+        if (more.length > 0) {
+            renderMovies(more);
+            loadedCount += more.length;
+        }
     }
 });
 
-// Initialize
 init();
-
 </script>
 
 </body>
-</html
+</html>
